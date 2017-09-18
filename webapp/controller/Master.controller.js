@@ -16,7 +16,7 @@ sap.ui.define([
 				url: "https://sycor-trial.eu10.cp.iot.sap:443/iot/core/api/v1/devices/3/measures?top=5",
 				cache: false,
 				headers: {
-					"Authorization": "Basic " + "cm9vdDpUMGthbW5tVlZ1Z0czNms="
+					"Authorization": "Basic " + "<pw>"
 				},
 				crossDomain: true,
 				async: false,
