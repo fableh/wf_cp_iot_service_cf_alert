@@ -1,0 +1,110 @@
+<mvc:View controllerName="IoTService_WFApp.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"  xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	displayBlock="true" >
+		<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<ObjectHeader title="{/context/task/Title}" titleActive="false" id="__header0">
+						<attributes>
+							<ObjectAttribute title="{i18n>createdOn}" text="{/context/task/CreatedOn}"/>
+							<ObjectAttribute text="{/context/task/Description}"/>
+						</attributes>
+						<statuses>
+							<ObjectStatus text="{/context/task/Status}" state="None"/>
+							<ObjectStatus text="{/context/task/Priority}" state="{/context/task/PriorityState}"/>
+						</statuses>
+					</ObjectHeader>
+					<IconTabBar selectedKey="__filter0" id="__bar0">
+						<items>
+							<IconTabFilter icon="sap-icon://hint" id="__filter0">
+								<content>
+									<ObjectHeader title="{/context/SensorDetail/name}" number="{/context/measure/Temperature}" numberUnit="°C" intro="Sensor Aelert Details"
+										introActive="true" titleActive="true" id="__header1"/>
+									<HBox width="100%" id="__hbox2">
+										<items>
+											<Table noDataText="Drop column list items here and columns in the area above" id="__table1" width="100%">
+												<items>
+													<ColumnListItem id="__item5">
+														<cells>
+															<ObjectIdentifier text="{/context/SensorDetail/id}"/>
+														</cells>
+														<cells>
+															<ObjectIdentifier text="{/context/SensorDetail/deviceId}"/>
+														</cells>
+														<cells>
+															<ObjectIdentifier text="{/context/SensorDetail/sensorTypeId}"/>
+														</cells>
+														<cells>
+															<ObjectIdentifier text="{/context/SensorDetail/alternateId}"/>
+														</cells>
+														<cells>
+															<ObjectIdentifier text="{/context/capabilityId}"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+												<columns>
+													<Column width="5em">
+														<header>
+															<Text text="ID"/></header>
+													</Column>
+													<Column width="5em">
+														<header>
+															<Text text="Device ID"/></header>
+													</Column>
+													<Column width="10em">
+														<header>
+															<Text text="Sensor Type ID"/></header>
+													</Column>
+													<Column>
+														<header>
+															<Text text="Alternate ID"/></header>
+													</Column>
+													<Column>
+														<header>
+															<Text text="Capability ID"/></header>
+													</Column>
+												</columns>
+											</Table>
+										</items>
+									</HBox>
+									<HBox width="100%" id="__hbox3">
+										<items></items>
+									</HBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://measure" id="__filter1" visible="true" press="getMeasures">
+								<content>
+									<Label text="Last 5 Measurements" width="100%" id="__label0"/>
+									<HBox>
+										<Table id="wfmeasuretable" class="sapUiResponsiveMargin" width="auto" growing="true" growingScrollToLoad="true" growingThreshold="10"
+											selectionChange="rowSelected">
+											<columns>
+												<Column>
+													<header>
+														<Text text="{i18n>SensorID}"/></header>
+												</Column>
+												<Column width="20em">
+													<header>
+														<Text text="{i18n>Capability}"/></header>
+												</Column>
+												<Column>
+													<header>
+														<Text text="{i18n>Timestamp}"/></header>
+												</Column>
+												<Column>
+													<header>
+														<Text text="{i18n>Measure}"/></header>
+												</Column>
+											</columns>
+										</Table>
+									</HBox>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
